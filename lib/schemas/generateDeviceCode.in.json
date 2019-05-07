@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "description": "The client's ID",
+                    "type": "string"
+                },
+                "client_secret": {
+                    "description": "The client's secret key",
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "A space-separated list of scope(s) requested by the application. Required for all untrusted clients; will be ignored for trusted clients.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "client_id"
+            ]
+        }
+    }
+}

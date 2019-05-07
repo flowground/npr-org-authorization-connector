@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "client_id": {
+            "required": true,
+            "type": "string"
+        },
+        "redirect_uri": {
+            "required": true,
+            "type": "string"
+        },
+        "response_type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "code"
+            ]
+        },
+        "scope": {
+            "required": true,
+            "type": "string"
+        },
+        "state": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

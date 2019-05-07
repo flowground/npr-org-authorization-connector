@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "Authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "description": "The access token or refresh token that the client wants to have revoked.",
+                    "type": "string"
+                },
+                "token_type_hint": {
+                    "description": "A hint about the type of the token submitted for revocation. If unspecified, the default value is assumed to be `access_token`.",
+                    "type": "string",
+                    "enum": [
+                        "access_token",
+                        "refresh_token"
+                    ]
+                }
+            },
+            "required": [
+                "token"
+            ]
+        }
+    }
+}

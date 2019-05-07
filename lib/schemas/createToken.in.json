@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "grant_type": {
+                    "description": "The type of grant the client is requesting",
+                    "type": "string",
+                    "enum": [
+                        "authorization_code",
+                        "client_credentials",
+                        "device_code",
+                        "password",
+                        "refresh_token",
+                        "temporary_user",
+                        "anonymous_user",
+                        "third_party"
+                    ]
+                },
+                "client_id": {
+                    "description": "The client's ID, required for all grant types.",
+                    "type": "string"
+                },
+                "client_secret": {
+                    "description": "The client's secret, required for all grant types.",
+                    "type": "string"
+                },
+                "code": {
+                    "description": "Required for `authorization_code` and `device_code` grant types. The authorization code from a successful call to `/v2/authorize`, or a device code from a successful call to `/v2/device`.",
+                    "type": "string"
+                },
+                "redirect_uri": {
+                    "description": "Required for `authorization_code` grant type. The requested redirect_uri.",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Required for `password` grant type. The email address of an NPR user.",
+                    "type": "string",
+                    "format": "email"
+                },
+                "password": {
+                    "description": "Required for `password` grant type. The password that matches the user specified with the username parameter.",
+                    "type": "string",
+                    "format": "password"
+                },
+                "service": {
+                    "description": "Required for `third_party` grant type. The name of the third-party login provider.",
+                    "type": "string",
+                    "enum": [
+                        "facebook",
+                        "google",
+                        "microsoft",
+                        "janrain",
+                        "comcast"
+                    ]
+                },
+                "refresh_token": {
+                    "description": "Required for `refresh_token` grant type. A valid refresh token from a previous successful call to `POST /v2/token`.",
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "Required for third-party developers using the `device_code`, `temporary_user`, and `third_party` grant types. Optionally used by the `refresh_token` grant type. A space-separated list of scope(s) requested by the application.",
+                    "type": "string"
+                },
+                "token_type_hint": {
+                    "description": "A hint about the type of the token submitted for a new access and refresh token. If unspecified, the default value is assumed to be `refresh_token`.",
+                    "type": "string",
+                    "enum": [
+                        "access_token",
+                        "refresh_token"
+                    ]
+                }
+            },
+            "required": [
+                "grant_type"
+            ]
+        }
+    }
+}
